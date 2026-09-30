@@ -1,22 +1,27 @@
-import sys
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-def main():
-    input_data = sys.stdin.read().split()
-    if not input_data:
-        return
-    
-    n = int(input_data[0])
-    k = int(input_data[1])
-    
-    if k > n:
-        print(-1)
-        return
-    
-    a = [int(x) for x in input_data[2:2 + n]]
-    
-    a.sort()
-    
-    print(a[k - 1])
+using namespace std;
 
-if __name__ == '__main__':
-    main()
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n, k;
+    if (!(cin >> n >> k)) return 0;
+
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+
+    if (k > n) {
+        cout << -1 << "\n";
+    } else {
+        sort(a.begin(), a.end());
+        cout << a[k - 1] << "\n";
+    }
+
+    return 0;
+}
