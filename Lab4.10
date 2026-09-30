@@ -1,0 +1,22 @@
+import sys
+
+def main():
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+    
+    n = int(input_data[0])
+    k = int(input_data[1])
+    
+    if k > n:
+        print(-1)
+        return
+    
+    a = [int(x) for x in input_data[2:2 + n]]
+    
+    a.sort()
+    
+    print(a[k - 1])
+
+if __name__ == '__main__':
+    main()
